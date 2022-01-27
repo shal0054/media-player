@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src https: 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; script-src * 'unsafe-inline';
+style-src 'self' https: 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="css/index.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>Playr</title>
+</head>
+
+<body>
+
+  <div class="main">
+
+    <!-- top bar -->
+    <div class="top_bar">
+      <button onclick="volumeTray()"><i class='bx bx-volume-full'></i></button>
+      <div class="volume">
+        <div class="volume_bar">
+          <p id="volume_level">70%</p>
+          <input id="volume_slider" type="range" min="0" max="100" value="70" class="slider">
+          <i id="mute_icon" data-vol="70" class="bx bx-volume-mute"></i>
+        </div>
+      </div>
+      <button onclick="playerListToggle()">
+        <i id="menu_icon" class='bx bx-music'></i>
+      </button>
+    </div>
+
+    <!-- player screen -->
+
+    <!-- player image -->
+    <div class="image">
+      <div class="img">
+        <img id="p_img" src="./media/img/music-note.png" alt="default img">
+      </div>
+    </div>
+
+    <!-- song info -->
+    <div class="controls">
+      <div class="song_info">
+        <p id="song_title">song title</p>
+        <p id="artist">artist name</p>
+      </div>
+
+      <!-- player controls -->
+      <div class="control_buttons">
+        <div class="range_slider">
+          <p id="timer">0:00</p>
+          <input id="slider" type="range" min="0" max="100" class="slider" value="0">
+          <p id="song_length">3:48</p>
+        </div>
+
+        <div class="main_btns">
+          <button id="previous"><i class='bx bx-skip-previous'></i></button>
+          <button id="play_pause_btn" class="">
+            <i id="play_pause_icon" class='bx bx-play'></i>
+          </button>
+          <button id="next"><i class='bx bx-skip-next'></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- playlist songs -->
+    <div class="playlist active" onclick="playerListToggle()">
+
+      <div id="0" class="song_card">
+        <img class="thumbnail" src="" alt="thumbnail image">
+        <div class="card_text">
+          <p id="p_title">song name</p>
+          <p id="p_artist">artist name</p>
+        </div>
+        <button><i class='bx bx-play'></i></button>
+      </div>
+
+      <div id="1" class="song_card">
+        <img class="thumbnail" src="" alt="thumbnail image">
+        <div class="card_text">
+          <p id="p_title">song name</p>
+          <p id="p_artist">artist name</p>
+        </div>
+        <button><i class='bx bx-play'></i></button>
+      </div>
+
+      <div id="2" class="song_card">
+        <img class="thumbnail" src="" alt="thumbnail image">
+        <div class="card_text">
+          <p id="p_title">song name</p>
+          <p id="p_artist">artist name</p>
+        </div>
+        <button><i class='bx bx-play'></i></button>
+      </div>
+
+      <div id="3" class="song_card">
+        <img class="thumbnail" src="" alt="thumbnail image">
+        <div class="card_text">
+          <p id="p_title">song name</p>
+          <p id="p_artist">artist name</p>
+        </div>
+        <button><i class='bx bx-play'></i></button>
+      </div>
+
+      <div id="4" class="song_card">
+        <img class="thumbnail" src="" alt="thumbnail image">
+        <div class="card_text">
+          <p id="p_title">song name</p>
+          <p id="p_artist">artist name</p>
+        </div>
+        <button><i class='bx bx-play'></i></button>
+      </div>
+
+    </div>
+  </div>
+
+  <!--  javascript for UI only -->
+  <script>
+    let playlist = document.querySelector('.playlist');
+    let volume = document.querySelector('.volume');
+    let menuIcon = document.getElementById('menu_icon');
+    let volumeLevel = document.getElementById('volume_level');
+
+
+    function playerListToggle() {
+      playlist.classList.toggle('active');
+      if (playlist.classList.contains('active')) {
+        menuIcon.className = '';
+        menuIcon.classList.add('bx');
+        menuIcon.classList.add('bx-music');
+      } else {
+        menuIcon.className = '';
+        menuIcon.classList.add('bx');
+        menuIcon.classList.add('bx-menu-alt-left');
+      }
+    }
+
+    function volumeTray() {
+      volume.classList.toggle('vol_slider_open');
+    }
+  </script>
+  <script src="cordova.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
